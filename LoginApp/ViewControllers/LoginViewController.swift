@@ -12,14 +12,24 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private let login = "Happy"
-    private let password = "123"
+    let userAccount = Account.createAccount()
     
 // MARK: - Override methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "loginSegue") {
-            let welocmeController = segue.destination as! WelcomeViewController
-            welocmeController.login = login
+
+        let tabBarController = segue.destination as! UITabBarController
+        
+        if let viewControllers = tabBarController.viewControllers {
+            for viewController in viewControllers {
+                if let welcomeController = viewController as? WelcomeViewController {
+                    welcomeController.login = userAccount.login
+                } else if let userInfoController = viewController as? UserInfoViewController {
+                    userInfoController.userInfo = userAccount.person.personInfo
+                } else if let jobController = viewController as? JobViewController {
+                    jobController.higherEducation = userAccount.person.higherEducation
+                    jobController.job = userAccount.person.job
+                }
+            }
         }
     }
     
@@ -39,11 +49,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotLoginpressed() {
-        showAlert(title: "Hint 🦄", message: "username is \"\(login)\"")
+        showAlert(title: "Hint 🦄", message: "username is \"\(userAccount.login)\"")
     }
     
     @IBAction func forgotPasswordPressed() {
-        showAlert(title: "Hint 🦄", message: "password is \"\(password)\"")
+        showAlert(title: "Hint 🦄", message: "password is \"\(userAccount.password)\"")
     }
     
 // MARK: - Private methods
@@ -59,7 +69,7 @@ class LoginViewController: UIViewController {
         let inputLogin = loginTextField.text ?? ""
         let inputPassword = passwordTextField.text ?? ""
         
-        return login == inputLogin && password == inputPassword
+        return userAccount.login == inputLogin && userAccount.password == inputPassword
     }
     
     private func showAlert(title: String, message: String) {
