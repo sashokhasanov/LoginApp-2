@@ -39,6 +39,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D26F7A3276C75BF0010F9AC /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2DED077F2768706800110C2E /* Main.storyboard */,
+				2DED07842768707000110C2E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2D26F7A4276C75E90010F9AC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2DED077D2768706800110C2E /* LoginViewController.swift */,
+				2DED078F27693A3900110C2E /* WelcomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2D26F7A5276C76010010F9AC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2DED07872768707000110C2E /* Info.plist */,
+				2DED07822768707000110C2E /* Assets.xcassets */,
+				2DED077B2768706800110C2E /* SceneDelegate.swift */,
+				2DED07792768706800110C2E /* AppDelegate.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		2DED076D2768706700110C2E = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +87,9 @@
 		2DED07782768706800110C2E /* LoginApp */ = {
 			isa = PBXGroup;
 			children = (
-				2DED07792768706800110C2E /* AppDelegate.swift */,
-				2DED077B2768706800110C2E /* SceneDelegate.swift */,
-				2DED077D2768706800110C2E /* LoginViewController.swift */,
-				2DED078F27693A3900110C2E /* WelcomeViewController.swift */,
-				2DED077F2768706800110C2E /* Main.storyboard */,
-				2DED07822768707000110C2E /* Assets.xcassets */,
-				2DED07842768707000110C2E /* LaunchScreen.storyboard */,
-				2DED07872768707000110C2E /* Info.plist */,
+				2D26F7A5276C76010010F9AC /* Other */,
+				2D26F7A4276C75E90010F9AC /* ViewControllers */,
+				2D26F7A3276C75BF0010F9AC /* Storyboard */,
 			);
 			path = LoginApp;
 			sourceTree = "<group>";
